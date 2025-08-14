@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0b1220 0%, #111827 50%, #0f1c2e 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #F9FAFB;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 font-bold rounded-xl text-white shadow-2xl transition-all duration-500 transform hover:scale-110;
+    background: linear-gradient(to right, #10B981, #06B6D4);
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 border-2 text-lightText font-bold rounded-xl hover:bg-cyan hover:text-charcoal transition-all duration-500 transform hover:scale-110 shadow-lg;
+    border-color: #06B6D4;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald to-cyan bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* You can keep your other component styles as-is, or slowly convert them */
+}
